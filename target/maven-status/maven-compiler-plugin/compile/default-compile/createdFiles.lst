@@ -1,0 +1,10 @@
+store\client\Client$ClientBuilder.class
+store\client\ClientModel.class
+store\client\Client.class
+store\client\ClientResource.class
+store\client\ClientService.class
+store\client\ClientIn.class
+store\client\ClientApplication.class
+store\client\ClientParser.class
+store\client\ClientRepository.class
+store\client\ClientOut.class

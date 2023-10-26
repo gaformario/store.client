@@ -24,12 +24,12 @@ public class ClientService {
 
     }
 
-    public Client find(String cpf) {
-        return ClientRepository.findById(cpf).orElse(null).to();
+    public Client find(String id) {
+        return ClientRepository.findById(id).orElse(null).to();
     }
 
-    public void delete(String cpf) {
-        ClientRepository.deleteById(cpf);
+    public void delete(String id) {
+        ClientRepository.deleteById(id);
     }
 
     public Client create(Client in) {
