@@ -1,6 +1,6 @@
 package store.client;
 
-import java.sql.Date;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -25,7 +25,7 @@ public class ClientModel {
     @Column(name = "name")
     private String name;
 
-    @Column
+    @Column(name = "birthdate")
     @Temporal(TemporalType.DATE)
     private Date date;
 
@@ -35,7 +35,7 @@ public class ClientModel {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "hashSenha")
+    @Column(name = "hashsenha")
     private String hashSenha;
 
     public ClientModel(Client o) {
@@ -43,6 +43,7 @@ public class ClientModel {
         this.name = o.name();
         this.cpf = o.cpf();
         this.email = o.email();
+        this.date = o.date();
         this.hashSenha = o.hashSenha();
     }
 
@@ -52,6 +53,7 @@ public class ClientModel {
             .name(this.name)
             .cpf(this.cpf)
             .email(this.email)
+            .date(this.date)
             .hashSenha(this.hashSenha)
             .build();
             

@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 
 public final class ClientParser {
 
-    private static SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMDD");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public static Client to(ClientIn in) {
         try {
@@ -21,16 +21,14 @@ public final class ClientParser {
             throw new RuntimeException("Incorrect date format : YYYYMMDD", e);
 
         }
-        
-        public static ClientOut to(Client o) {
-            return new ClientOut(
-                o.id(),
-                o.name(),
-                o.date(),
-                o.cpf(),
-                o.email()
-            );
-        }
+    }
+    public static ClientOut to(Client o) {
+        return new ClientOut(
+            o.name(),
+            o.cpf(),
+            o.email(),
+            sdf.format(o.date())
+        );
     }
     
 }

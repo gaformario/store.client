@@ -3,6 +3,7 @@ package store.client;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -34,10 +35,10 @@ public class ClientService {
     public Client create(Client in) {
         if (in.senha() == null)
             throw new RuntimeException("Password is Mandatory");
-            in.senha(in.senha().trim());
+        in.senha(in.senha().trim());
         
         if (in.senha().length() < 5)
-            throw new RuntimeException("Password is shorter than 5 characters")
+            throw new RuntimeException("Password is shorter than 5 characters");
         
             String hash;
 
