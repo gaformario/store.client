@@ -57,9 +57,9 @@ $(function() {
     
         for (let i = 0; i < clients.length; i++) {
             const client = clients[i];
-    
-            const clientCard = $('<div class="row mx-2 my-2 card col-md-4 shadow"></div');
-    
+            
+            const clientCard = $('<div class="row mx-2 my-2 card col-md-4 shadow"></div>');
+
             const cardBody = $('<div class="card-body"></div>');
             cardBody.append(`<h5 class="card-title">Nome: ${client.name}</h5>`);
             cardBody.append(`<p class="card-text">CPF: ${client.cpf}</p>`);
