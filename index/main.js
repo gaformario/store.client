@@ -55,32 +55,31 @@ $(function() {
         const clientDataElement = $('#client_data');
         clientDataElement.empty();
     
+        let divrow = $('<div class="row"></div>');
+    
         for (let i = 0; i < clients.length; i++) {
             const client = clients[i];
-            
-            if (i % 3 === 0) {
-            const divrow = '<div class="row">'
-            clientDataElement.append(divrow);
-            }
-            
-            const clientCard = $('<div class="card col-md-4 shadow"></div>');
-
+    
+            const clientCard = $('<div class="card col-md-3 shadow mb-3 mx-1" style="padding: 10px;"></div>');
+    
             const cardBody = $('<div class="card-body"></div>');
             cardBody.append(`<p class="card-title">Nome: ${client.name}</p>`);
-            cardBody.append(`<p class="card-text">CPF: ${client.cpf}</p>`);
+            cardBody.append(`<p class="card-text">C PF: ${client.cpf}</p>`);
             cardBody.append(`<p class="card-text">Email: ${client.email}</p>`);
-            cardBody.append(`<p class="card-text">Data: ${client.date}</p>`);
-                       
+            cardBody.append(`<p class="card-text">Data: ${client.date}</p`);
+    
             clientCard.append(cardBody);
-
-            clientDataElement.append(clientCard);
-
-            if (i % 3 === 2 || i === clients.length - 1){
-                const divrow = '</div>'
-                clientDataElement.append(divrow);
-                }
             
+    
+            divrow.append(clientCard);
+    
+            if (i % 3 === 2 || i === clients.length - 1) {
+                clientDataElement.append(divrow);
+                divrow = $('<div class="row"></div>');
+            }
         }
     }
+    
+    
     
 });
