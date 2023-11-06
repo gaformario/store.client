@@ -24,6 +24,7 @@ public final class ClientParser {
     }
     public static ClientOut to(Client o) {
         return new ClientOut(
+            o.id(),
             o.name(),
             o.cpf(),
             o.email(),

@@ -51,6 +51,10 @@ $(function() {
         });
     }
 
+    function deleteClient(id) {
+        console.log(id);
+    }
+
     function displayClients(clients) {
         const clientDataElement = $('#client_data');
         clientDataElement.empty();
@@ -68,7 +72,14 @@ $(function() {
             cardBody.append(`<p class="card-title">Nome: ${client.name}</p>`);
             cardBody.append(`<p class="card-text">CPF: ${client.cpf}</p>`);
             cardBody.append(`<p class="card-text">Email: ${client.email}</p>`);
-            cardBody.append(`<p class="card-text">Data: ${client.date}</p`);
+            cardBody.append(`<p class="card-text">Data: ${client.date}</p>`);
+
+            const button = $(`<button>Delete</button>`);
+            button.on('click', function () {
+                deleteClient(client.id);
+            });
+
+            cardBody.append(button);
     
             clientCard.append(cardBody);
             clientCol.append(clientCard);
