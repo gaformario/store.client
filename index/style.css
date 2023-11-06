@@ -2,7 +2,7 @@ body {
     font-family: Helvetica;
 }
 
-.h1 {
+h1 {
     background-color: #007bff;
     color: white;
     padding: 1rem;

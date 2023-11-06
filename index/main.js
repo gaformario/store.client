@@ -58,18 +58,28 @@ $(function() {
         for (let i = 0; i < clients.length; i++) {
             const client = clients[i];
             
-            const clientCard = $('<div class="row mx-2 my-2 card col-md-4 shadow"></div>');
+            if (i % 3 === 0) {
+            const divrow = '<div class="row">'
+            clientDataElement.append(divrow);
+            }
+            
+            const clientCard = $('<div class="card col-md-4 shadow"></div>');
 
             const cardBody = $('<div class="card-body"></div>');
-            cardBody.append(`<h5 class="card-title">Nome: ${client.name}</h5>`);
+            cardBody.append(`<p class="card-title">Nome: ${client.name}</p>`);
             cardBody.append(`<p class="card-text">CPF: ${client.cpf}</p>`);
             cardBody.append(`<p class="card-text">Email: ${client.email}</p>`);
             cardBody.append(`<p class="card-text">Data: ${client.date}</p>`);
                        
             clientCard.append(cardBody);
-    
+
             clientDataElement.append(clientCard);
-            clientDataElement.append('<br>');
+
+            if (i % 3 === 2 || i === clients.length - 1){
+                const divrow = '</div>'
+                clientDataElement.append(divrow);
+                }
+            
         }
     }
     
