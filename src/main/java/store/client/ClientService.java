@@ -54,6 +54,12 @@ public class ClientService {
         }
     }
 
+    public Client update(Client in) {
+        ClientModel aux = new ClientModel(in);
+        aux.setId(in.id());
+        return ClientRepository.save(aux).to();
+    }
+
     private String calculateHash(String text) throws NoSuchAlgorithmException {
         MessageDigest digest = MessageDigest.getInstance("SHA-256");
         byte[] hash = digest.digest(text.getBytes(StandardCharsets.UTF_8));
