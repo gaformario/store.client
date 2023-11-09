@@ -21,6 +21,7 @@ $(function() {
         var senha = $('#senha').val();
         var date = $('#data').val();
         
+        waitSwal();
         $.ajax({
             headers: {
                 'Accept': 'application/json',
@@ -28,7 +29,7 @@ $(function() {
             },
             type: 'POST',
             url: `${API}/client`,
-            dataType: 'json',
+//            dataType: 'json',
             data: JSON.stringify({
                 "name": name,
                 "cpf": cpf,
@@ -37,8 +38,19 @@ $(function() {
                 "date": date,
             }),
             success: function(response) {
-                console.log(response)
+                console.log("espm")
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Cliente cadastrado!',
+                    text: `O cliente foi cadastrado com sucesso.`
+                });
+                
             }, error(xhr, status, error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro ao cadastrar o cliente',
+                    text: `Ocorreu um erro ao cadastrar o cliente.`
+                });
                 console.log(xhr);
             }
         })
