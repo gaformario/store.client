@@ -29,7 +29,6 @@ $(function() {
             },
             type: 'POST',
             url: `${API}/client`,
-//            dataType: 'json',
             data: JSON.stringify({
                 "name": name,
                 "cpf": cpf,
@@ -38,7 +37,6 @@ $(function() {
                 "date": date,
             }),
             success: function(response) {
-                console.log("espm")
                 Swal.fire({
                     icon: 'success',
                     title: 'Cliente cadastrado!',
@@ -181,7 +179,6 @@ $(function() {
                         },
                         type: 'PUT',
                         url: `${API}/client/${id}`,
-                        dataType: 'json',
                         data: JSON.stringify({
                             "name": modal.find('#cliente_nome').val(),
                             "date": modal.find('#data').val(),
@@ -190,29 +187,31 @@ $(function() {
                             "senha": modal.find('#senha').val(),
                         }),
                         success: function(response) {
-                            //Swal.fire({
-                              //  icon: 'success',
-                                //title: 'Cliente atualizado!',
-                                //text: `O cliente com ID ${id} foi atualizado com sucesso.`
-                            //});
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Cliente atualizado!',
+                                text: `O cliente com ID ${id} foi atualizado com sucesso.`
+                            });
                             listClients();
-                            modal.modal('hide'); // Feche o modal após a conclusão da requisição
-                            window.location.reload();
+                            modal.modal('hide');
+                           
                         },
                         error: function(xhr, status, error) {
-                            //Swal.fire({
-                              //  icon: 'error',
-                                //title: 'Erro ao atualizar cliente',
-                                //text: `Ocorreu um erro ao atualizar o cliente com ID ${id}.`
-                            //});
                             console.log(xhr);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Erro ao atualizar cliente',
+                                text: `Ocorreu um erro ao atualizar o cliente com ID ${id}.`
+                            });
+                            
                             modal.modal('hide'); // Feche o modal após a conclusão da requisição
-                            window.location.reload();
+                            
                         }
                     });
                 });
     
                 modal.modal('show');
+            
             },
             error: function(xhr, status, error) {
                 console.log(xhr);
@@ -220,8 +219,6 @@ $(function() {
         });
     }
     
-    
-
     function displayClients(clients) {
         const clientDataElement = $('#client_data');
         clientDataElement.empty();
